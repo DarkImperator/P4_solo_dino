@@ -26,21 +26,19 @@ pool.getConnection().catch(() => {
 })
 
 // declare and fill models: that's where you should register your own managers
+// INSERER ICI LES NVx MODEL : ATTENTION IL Y A 2 INFOS :
 
 const models = {}
 
-const ItemManager = require("./ItemManager")
-const CharactersManager = require("./CharactersManager")
-const SpellsManager = require("./SpellsManager")
+const ArticlesManager = require("./ArticlesManager")
+const UtilisateursManager = require("./UtilisateursManager")
 
-models.item = new ItemManager()
-models.item.setDatabase(pool)
+models.articles = new ArticlesManager()
+models.articles.setDatabase(pool)
 
-models.characters = new CharactersManager()
-models.characters.setDatabase(pool)
+models.utilisateurs = new UtilisateursManager()
+models.utilisateurs.setDatabase(pool)
 
-models.spells = new SpellsManager()
-models.spells.setDatabase(pool)
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
