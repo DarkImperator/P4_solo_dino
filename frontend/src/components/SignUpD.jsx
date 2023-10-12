@@ -38,7 +38,8 @@ const SignUpD = ({
   const HandleSubmitSignUp = () => {
     console.info(setImg) // <=============== A supprimer, pour eviter un erreur pdt le dev
     axios
-      .post("http://localhost:4242/signup", {
+      // .post("http://localhost:4242/signup", {
+      .post("http://localhost:4243/signup", {
         firstname,
         lastname,
         pseudo,

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react"
 import logoDino from "../assets/img/logo-dinosaure-colere.avif"
 
-import { Link, useNavigate } from "react-router-dom"
-import UserContext from "./UserContext"
+// import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
+import UserContext from "./MyContext"
 
 import "./NavBare.scss"
 import LoginD from "./LoginD"
@@ -18,14 +19,14 @@ const NavBare = () => {
     setChangeClassToOpenMenu(!changeClassToOpenMenu)
   }
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const HandleClickOpenLog = () => {
     setOpenFormLogin(true)
   }
 
   const HandleClickLogout = () => {
-    navigate("/")
+    // navigate("/")
     setUser(null)
   }
 
@@ -78,7 +79,7 @@ const NavBare = () => {
                 HandleChangeClassTopOpenMenu()
               }}
             >
-              <p>{user.login}</p>
+              <p>{user.pseudo}</p>
             </button>
           </div>
         )}

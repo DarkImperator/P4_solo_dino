@@ -1,6 +1,24 @@
 .mainMag {
   width: 100vw;
-  height: 50vh;
-  background-color: red;
-  color: green;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .infoLoginIn {
+    width: 80%;
+    text-align: center;
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: yellow;
+    border: 5px solid black;
+    border-radius: 10px;
+  }
+
+
+  .dinoCartes {
+    display: flex;
+    flex-wrap: wrap;  }
 }

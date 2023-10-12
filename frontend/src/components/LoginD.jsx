@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import axios from "axios"
-import UserContext from "./UserContext"
+import UserContext from "./MyContext"
 
 import croix from "../assets/img/Close.svg"
 import eye from "../assets/img/eye.svg"
@@ -14,7 +14,7 @@ const LoginD = ({
   setChangeClassToOpenMenu,
 }) => {
   const { user, setUser } = useContext(UserContext)
-  const [email, setEmail] = useState("")
+  const [pseudo, setPseudo] = useState("")
   const [mdp, setMdp] = useState("")
   // const [wrongEmailOrPassword, setWrongEmailOrPassword] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
@@ -24,14 +24,18 @@ const LoginD = ({
   }
 
   const HandleSubmitlogin = () => {
+    console.info("pseudo", pseudo)
+    console.info("password", mdp)
     axios
-      .post("http://localhost:4242/login", {
+      // .post("http://localhost:4242/login", {
+      .post("http://localhost:4243/login", {
         user,
-        email,
+        pseudo,
         password: mdp,
       })
       .then(({ data }) => {
         setUser(data)
+        console.info("user", data)
         setOpenFormLogin(false)
 
         // Sauvegarde des informations de l'utilisateur dans le localStorage
@@ -56,7 +60,7 @@ const LoginD = ({
   }
 
   const HandleChangeEmail = (event) => {
-    setEmail(event.target.value)
+    setPseudo(event.target.value)
   }
 
   const HandleChangeMdp = (event) => {
@@ -82,12 +86,12 @@ const LoginD = ({
           </div>
           <div className="EmailPassword">
             <div className="labelInput">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="pseudo">Pseudo</label>
               <input
                 id="email"
-                type="email"
-                name="email"
-                value={email}
+                type="pseudo"
+                name="pseudo"
+                value={pseudo}
                 onChange={HandleChangeEmail}
               />
             </div>
@@ -121,7 +125,7 @@ const LoginD = ({
             </div>
 
             {/* {wrongEmailOrPassword && (
-              <p className="wrongLogin">Wrong Email or PassWord</p>
+              <p className="wrongLogin">Wrong Pseudo or PassWord</p>
             )} */}
           </div>
           <button type="button" onClick={HandleSubmitlogin}>

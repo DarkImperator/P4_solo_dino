@@ -1,11 +1,13 @@
 import HomePage from "./pages/HomePage"
 import Encyclo from "./pages/Encyclo"
 import Magasin from "./pages/Magasin"
+import CarteMagDetails from "./components/CarteMagDetails"
 
 import { Routes, Route } from "react-router-dom"
 import { useState, useMemo, useEffect } from "react"
+import axios from "axios"
 
-import UserContext from "./components/UserContext"
+import MyContext from "./components/MyContext"
 
 import "./App.scss"
 
@@ -15,6 +17,7 @@ function App() {
   // user sera l'utilisateur de mon site, quand on entre sur le site il est initialisé à null
   // il changera quand on l'utilisateur se connectera
   const [user, setUser] = useState(null)
+  const [dinos, setDinos] = useState([])
 
   // pour conserver l'utilisateur connecté même en cas de raffraichissement
   useEffect(() => {
@@ -31,20 +34,39 @@ function App() {
       setUser,
       users,
       setUsers,
+      dinos,
+      setDinos,
     }),
-    [user, setUser, users, setUsers]
+    [user, setUser, users, setUsers, dinos, setDinos]
   )
+
+  useEffect(() => {
+    axios
+      // .get("http://localhost:4242/articles")
+      .get("http://localhost:4243/articles")
+      .then(({ data }) => {
+        setDinos(data)
+      })
+      .catch((err) => console.error(err))
+  }, [])
 
   return (
     <>
       <section className="App">
-        <UserContext.Provider value={valeursFourniesDansMyContextProvider}>
+        <MyContext.Provider value={valeursFourniesDansMyContextProvider}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/encyclopedie" element={<Encyclo />} />
-            <Route path="/magasin" element={<Magasin />} />
+            <Route
+              path="/magasin"
+              element={<Magasin dinos={dinos} setDinos={setDinos} />}
+            />
+            <Route
+              path="/magasin/:id"
+              element={<CarteMagDetails dinos={dinos} />}
+            />
           </Routes>
-        </UserContext.Provider>
+        </MyContext.Provider>
       </section>
     </>
   )

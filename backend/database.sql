@@ -46,7 +46,7 @@ CREATE TABLE `alimentation` (
 
 LOCK TABLES `alimentation` WRITE;
 /*!40000 ALTER TABLE `alimentation` DISABLE KEYS */;
-INSERT INTO `alimentation` VALUES (1,'carnivore'),(2,'vegetivore'),(3,'piscivore'),(4,'insectivore'),(5,'non concerne');
+INSERT INTO `alimentation` VALUES (1,'carnivore'),(4,'insectivore'),(5,'non concerne'),(3,'piscivore'),(2,'vegetivore');
 /*!40000 ALTER TABLE `alimentation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +164,7 @@ CREATE TABLE `environnement` (
 
 LOCK TABLES `environnement` WRITE;
 /*!40000 ALTER TABLE `environnement` DISABLE KEYS */;
-INSERT INTO `environnement` VALUES (1,'terrestre'),(2,'aerien'),(3,'marin');
+INSERT INTO `environnement` VALUES (2,'aerien'),(3,'marin'),(1,'terrestre');
 /*!40000 ALTER TABLE `environnement` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +216,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,'saurischiens'),(2,'ornithischiens');
+INSERT INTO `order` VALUES (2,'ornithischiens'),(1,'saurischiens');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,7 +241,7 @@ CREATE TABLE `period` (
 
 LOCK TABLES `period` WRITE;
 /*!40000 ALTER TABLE `period` DISABLE KEYS */;
-INSERT INTO `period` VALUES (1,'Trias'),(2,'Trias inferieur'),(3,'Trias moyen'),(4,'Trias superieur'),(5,'Jurassique'),(6,'Jurassique inferieur'),(7,'Jurassique moyen'),(8,'Jurassique superieur'),(9,'Cretace'),(10,'Cretace inferieur'),(11,'Cretace superieur');
+INSERT INTO `period` VALUES (9,'Cretace'),(10,'Cretace inferieur'),(11,'Cretace superieur'),(5,'Jurassique'),(6,'Jurassique inferieur'),(7,'Jurassique moyen'),(8,'Jurassique superieur'),(1,'Trias'),(2,'Trias inferieur'),(3,'Trias moyen'),(4,'Trias superieur');
 /*!40000 ALTER TABLE `period` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,7 +266,7 @@ CREATE TABLE `posture` (
 
 LOCK TABLES `posture` WRITE;
 /*!40000 ALTER TABLE `posture` DISABLE KEYS */;
-INSERT INTO `posture` VALUES (1,'bipede'),(2,'quadrupede'),(3,'mixte'),(4,'volante'),(5,'nageante');
+INSERT INTO `posture` VALUES (1,'bipede'),(3,'mixte'),(5,'nageante'),(2,'quadrupede'),(4,'volante');
 /*!40000 ALTER TABLE `posture` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +291,7 @@ CREATE TABLE `size category` (
 
 LOCK TABLES `size category` WRITE;
 /*!40000 ALTER TABLE `size category` DISABLE KEYS */;
-INSERT INTO `size category` VALUES (1,'minuscule'),(2,'petite'),(3,'moyenne'),(4,'grande'),(5,'gigantesque');
+INSERT INTO `size category` VALUES (5,'gigantesque'),(4,'grande'),(1,'minuscule'),(3,'moyenne'),(2,'petite');
 /*!40000 ALTER TABLE `size category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +316,7 @@ CREATE TABLE `stratigraphic_stage` (
 
 LOCK TABLES `stratigraphic_stage` WRITE;
 /*!40000 ALTER TABLE `stratigraphic_stage` DISABLE KEYS */;
-INSERT INTO `stratigraphic_stage` VALUES (1,'Indusien'),(2,'Olenekien'),(3,'Anisien'),(4,'Ladinien'),(5,'Carnien'),(6,'Norien'),(7,'Rhetien'),(8,'Hettangien'),(9,'Sinemurien'),(10,'Pliensbachien'),(11,'Toarcien'),(12,'Aalenien'),(13,'Bajocien'),(14,'Bathonien'),(15,'Callovien'),(16,'Oxofordien'),(17,'Kimmeridgien'),(18,'Tithonien'),(19,'Berriasien'),(20,'Valanginien'),(21,'Hauterivien'),(22,'Barremien'),(23,'Aptien'),(24,'Albien'),(25,'Cenomanien'),(26,'Turonien'),(27,'Coniacien'),(28,'Santonien'),(29,'Campanien'),(30,'Maastrichtien');
+INSERT INTO `stratigraphic_stage` VALUES (12,'Aalenien'),(24,'Albien'),(3,'Anisien'),(23,'Aptien'),(13,'Bajocien'),(22,'Barremien'),(14,'Bathonien'),(19,'Berriasien'),(15,'Callovien'),(29,'Campanien'),(5,'Carnien'),(25,'Cenomanien'),(27,'Coniacien'),(21,'Hauterivien'),(8,'Hettangien'),(1,'Indusien'),(17,'Kimmeridgien'),(4,'Ladinien'),(30,'Maastrichtien'),(6,'Norien'),(2,'Olenekien'),(16,'Oxofordien'),(10,'Pliensbachien'),(7,'Rhetien'),(28,'Santonien'),(9,'Sinemurien'),(18,'Tithonien'),(11,'Toarcien'),(26,'Turonien'),(20,'Valanginien');
 /*!40000 ALTER TABLE `stratigraphic_stage` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -341,7 +341,7 @@ CREATE TABLE `type_article` (
 
 LOCK TABLES `type_article` WRITE;
 /*!40000 ALTER TABLE `type_article` DISABLE KEYS */;
-INSERT INTO `type_article` VALUES (1,'figurine'),(2,'batiment'),(3,'vehicule');
+INSERT INTO `type_article` VALUES (2,'batiment'),(1,'figurine'),(3,'vehicule');
 /*!40000 ALTER TABLE `type_article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -365,7 +365,7 @@ CREATE TABLE `utilisateurs` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `pseudo_UNIQUE` (`pseudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -374,8 +374,38 @@ CREATE TABLE `utilisateurs` (
 
 LOCK TABLES `utilisateurs` WRITE;
 /*!40000 ALTER TABLE `utilisateurs` DISABLE KEYS */;
-INSERT INTO `utilisateurs` VALUES (1,'Ezra','Bridger','**_BoGoss_2_Lothal_**','ezra.bridger@planete-lothal-empire.com','$argon2id$v=19$m=65536,t=5,p=1$FWGL9NTYzXY4Fq5XRfNQcA$xpBW9sf/0Rfcl3ZUYY8uAR6Iw2kGQbIVnrZxMJTqq5I',NULL,'2023-09-26','blooob28'),(2,'Jarrus','Kannan','...Almost_Jedi...','kannan.jarrus@compagnieminiere.unv','$argon2id$v=19$m=65536,t=5,p=1$VpV4jV+wxYXdZVrcnv/beg$0iu3KFrYhvqR+CKCxRQ1bxy+lvZeMkY8EK04ZKY5fdk','http','2023-09-26','blooob29');
+INSERT INTO `utilisateurs` VALUES (1,'Ezra','Bridger','**_BoGoss_2_Lothal_**','ezra.bridger@planete-lothal-empire.com','$argon2id$v=19$m=65536,t=5,p=1$FWGL9NTYzXY4Fq5XRfNQcA$xpBW9sf/0Rfcl3ZUYY8uAR6Iw2kGQbIVnrZxMJTqq5I',NULL,'2023-09-26','blooob28'),(2,'Jarrus','Kannan','...Almost_Jedi...','kannan.jarrus@compagnieminiere.unv','$argon2id$v=19$m=65536,t=5,p=1$VpV4jV+wxYXdZVrcnv/beg$0iu3KFrYhvqR+CKCxRQ1bxy+lvZeMkY8EK04ZKY5fdk','http','2023-09-26','blooob29'),(3,'Ahsoka','Tano','AsTa','ahsoka.tano@rebellion.unv','$argon2id$v=19$m=65536,t=5,p=1$SYX9SxkUxb9iAJXiE6/ALQ$nluTlJFvcVZof/tbzsHKlqXQa683yUh8CX7I3nKy8B8','none','2023-09-27','blooob32');
 /*!40000 ALTER TABLE `utilisateurs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `utilisateurs_has_articles`
+--
+
+DROP TABLE IF EXISTS `utilisateurs_has_articles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `utilisateurs_has_articles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `utilisateurs_id` int NOT NULL,
+  `articles_id` int NOT NULL,
+  `quantity` int NOT NULL DEFAULT '0',
+  `total` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`,`utilisateurs_id`,`articles_id`),
+  KEY `fk_utilisateurs_has_articles_articles1_idx` (`articles_id`),
+  KEY `fk_utilisateurs_has_articles_utilisateurs1_idx` (`utilisateurs_id`),
+  CONSTRAINT `fk_utilisateurs_has_articles_articles1` FOREIGN KEY (`articles_id`) REFERENCES `articles` (`id`),
+  CONSTRAINT `fk_utilisateurs_has_articles_utilisateurs1` FOREIGN KEY (`utilisateurs_id`) REFERENCES `utilisateurs` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `utilisateurs_has_articles`
+--
+
+LOCK TABLES `utilisateurs_has_articles` WRITE;
+/*!40000 ALTER TABLE `utilisateurs_has_articles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `utilisateurs_has_articles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -387,4 +417,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-26 12:26:34
+-- Dump completed on 2023-10-02 16:53:05

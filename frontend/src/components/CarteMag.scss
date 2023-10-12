@@ -1,15 +1,15 @@
 .carteGlobal {
-  width: 25vw;
-  height: 45vh;
+  width: 30vw;
+  height: 60vh;
   border: 5px solid red;
   padding: 10px;
   margin: 5px;
 
   &:hover {
-    background-color: yellow;
+    background-color: lightcyan;
   }
 
-  .test {
+  .mainContent {
     // width: 30vw;
     // height: 30vh;
 

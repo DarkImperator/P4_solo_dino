@@ -32,12 +32,16 @@ const models = {}
 
 const ArticlesManager = require("./ArticlesManager")
 const UtilisateursManager = require("./UtilisateursManager")
+const FavoriManager = require("./FavoriManager")
 
 models.articles = new ArticlesManager()
 models.articles.setDatabase(pool)
 
 models.utilisateurs = new UtilisateursManager()
 models.utilisateurs.setDatabase(pool)
+
+models.favori = new FavoriManager()
+models.favori.setDatabase(pool)
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
